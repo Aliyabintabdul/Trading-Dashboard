@@ -1,7 +1,11 @@
 import express from "express"
+import cors from "cors"
 
 const app = express()
-const PORT = 3001
+const PORT = process.env.PORT || 3001
+const HOST = "0.0.0.0"
+
+app.use(cors())
 
 const assets = [
   { symbol: "BTC", name: "Bitcoin", id: "bitcoin" },
@@ -11,7 +15,6 @@ const assets = [
   { symbol: "ADA", name: "Cardano", id: "cardano" },
   { symbol: "DOGE", name: "Dogecoin", id: "dogecoin" },
   { symbol: "DOT", name: "Polkadot", id: "polkadot" },
-  
 ]
 
 const baseData = {
@@ -22,7 +25,6 @@ const baseData = {
   cardano: { price: 0.45, change: 1.2 },
   dogecoin: { price: 0.12, change: 3.1 },
   polkadot: { price: 6.5, change: -1.5 },
-  
 }
 
 function getAssetById(id) {
@@ -65,6 +67,10 @@ function generateChart(id) {
   }))
 }
 
+app.get("/", (req, res) => {
+  res.send("Trading Dashboard Mock API is running.")
+})
+
 app.get("/api/assets", (req, res) => {
   res.json(assets)
 })
@@ -101,6 +107,6 @@ app.get("/api/chart", (req, res) => {
   res.json(generateChart(symbol))
 })
 
-app.listen(PORT, () => {
-  console.log(`Mock API running on http://localhost:${PORT}`)
+app.listen(PORT, HOST, () => {
+  console.log(`Mock API running on http://${HOST}:${PORT}`)
 })
