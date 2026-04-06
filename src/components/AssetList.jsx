@@ -3,6 +3,9 @@ const assets = [
   { symbol: "ETH", name: "Ethereum", id: "ethereum" },
   { symbol: "SOL", name: "Solana", id: "solana" },
   { symbol: "XRP", name: "Ripple", id: "ripple" },
+  { symbol: "ADA", name: "Cardano", id: "cardano" },
+  { symbol: "DOGE", name: "Dogecoin", id: "dogecoin" },
+  { symbol: "DOT", name: "Polkadot", id: "polkadot" },
 ]
 
 export default function AssetList({ selectedAsset, onSelectAsset }) {

@@ -46,7 +46,8 @@ I used a mock service to:
 - ensure consistent real-time updates
 - keep the UI stable during review
 
-
+## Assets 
+I hardcoded a few assets to keep the UI clean and avoid unnecessary API calls. In a production setup, I would fetch the asset list dynamically and only load detailed data for the selected asset to handle large datasets efficiently. And would make sure that the assets are in a drop down for better UX. 
 
 ## How real-time updates work
 

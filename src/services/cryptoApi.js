@@ -3,6 +3,14 @@ const mockPrices = {
   ethereum: { symbol: "ETH", price: 3200, change: 1.8 },
   solana: { symbol: "SOL", price: 145, change: 4.2 },
   ripple: { symbol: "XRP", price: 0.55, change: -0.9 },
+  cardano: { symbol: "ADA", price: 0.45, change: 1.2 },
+  dogecoin: { symbol: "DOGE", price: 0.12, change: 3.1 },
+  polkadot: { symbol: "DOT", price: 6.5, change: -1.5 },
+  "matic-network": { symbol: "MATIC", price: 0.9, change: 2.4 },
+  litecoin: { symbol: "LTC", price: 85, change: -0.7 },
+  "avalanche-2": { symbol: "AVAX", price: 32, change: 1.9 },
+  binancecoin: { symbol: "BNB", price: 580, change: 0.8 },
+  chainlink: { symbol: "LINK", price: 18, change: 2.7 },
 }
 
 export async function fetchAssetPrice(coinId) {
