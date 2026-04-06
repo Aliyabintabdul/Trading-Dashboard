@@ -1,5 +1,8 @@
+const API_BASE =
+  import.meta.env.VITE_API_BASE_URL || "http://localhost:3001"
+
 export async function fetchAssetPrice(coinId) {
-  const response = await fetch(`/api/price?symbol=${coinId}`)
+  const response = await fetch(`${API_BASE}/api/price?symbol=${coinId}`)
 
   if (!response.ok) {
     throw new Error("Failed to fetch price data")
@@ -14,7 +17,7 @@ export async function fetchAssetPrice(coinId) {
 }
 
 export async function fetchMockChartData(coinId) {
-  const response = await fetch(`/api/chart?symbol=${coinId}`)
+  const response = await fetch(`${API_BASE}/api/chart?symbol=${coinId}`)
 
   if (!response.ok) {
     throw new Error("Failed to fetch chart data")
