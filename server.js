@@ -5,7 +5,6 @@ const app = express()
 const PORT = process.env.PORT || 3001
 const HOST = "0.0.0.0"
 
-// ✅ FIXED CORS (IMPORTANT)
 app.use(
   cors({
     origin: [
