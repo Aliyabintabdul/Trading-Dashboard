@@ -1,5 +1,5 @@
 const API_BASE =
-  import.meta.env.VITE_API_BASE_URL || "http://localhost:3001"
+  import.meta.env.VITE_API_BASE_URL || "https://trading-dashboard-wyz3.onrender.com"
 
 export async function fetchAssetPrice(coinId) {
   const response = await fetch(`${API_BASE}/api/price?symbol=${coinId}`)
