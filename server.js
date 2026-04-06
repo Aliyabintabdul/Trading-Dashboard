@@ -5,7 +5,16 @@ const app = express()
 const PORT = process.env.PORT || 3001
 const HOST = "0.0.0.0"
 
-app.use(cors())
+// ✅ FIXED CORS (IMPORTANT)
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "https://trading-dashboard-19xg.onrender.com",
+    ],
+    methods: ["GET"],
+  })
+)
 
 const assets = [
   { symbol: "BTC", name: "Bitcoin", id: "bitcoin" },
