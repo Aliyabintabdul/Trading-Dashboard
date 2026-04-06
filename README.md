@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-# Trading-Dashboard-
-A React-based mini trading dashboard with real-time (simulated) price updates, asset selection, chart visualization, and buy/sell interactions.
-=======
 ## Setup Instructions
 ### 1. Clone the repository
 
@@ -62,4 +58,4 @@ The app uses polling:
 
 
 
->>>>>>> 82d6da4 (Initial commit - mini trading dashboard)
+
