@@ -1,62 +1,66 @@
-## Setup Instructions
+# Trading Dashboard
+
+A simple React-based trading dashboard that shows live (simulated) crypto prices, updates automatically, and allows basic buy/sell interactions.
+
+
+##  Setup Instructions
+
 ### 1. Clone the repository
 
 ```bash
 git clone <your-repo-link>
 cd mini-trading-dashboard
 
-### 2. dependencies 
-
-```bash
-npm install
-
-
-# Trading Dashboard
-
-A simple React-based trading dashboard that shows live (simulated) crypto prices, updates automatically, and allows basic buy/sell interactions.
-
-
-
 ## What this project does
 
-This dashboard lets you:
+- This dashboard lets you:
 
-- Select an asset (BTC, ETH, SOL, XRP)
+- Select an asset (BTC, ETH, SOL, XRP, etc.)
 - View current price and 24h change
-- See a simple price trend chart
+- See a price trend chart
 - Enter an amount and simulate Buy/Sell
-- Get instant feedback via a toast notification
-- Watch prices update automatically every 5 seconds
-
-
+- Toast notifications
+- Prices update automatically every 5 seconds
 
 ## Tech Used
-
 - React (Vite)
-- Tailwind CSS (for styling)
-- Recharts (for chart)
-- Mock API (for stable real-time simulation)
+- Tailwind CSS (UI styling)
+- Recharts (chart visualization)
+- Express (Mock API)
 
+## Mock API Approach
 
+- Instead of generating mock data directly inside the frontend, I created a small local mock API with endpoints like:
+- GET /api/price
+- GET /api/chart
 
-## Mock API
+## Why this approach?
+- Avoids CORS and rate limit issues from public APIs
+- Keeps frontend and data layer separated
+- Makes the app closer to real-world architecture
+- Easy to replace with a real backend later
 
-I used a mock service to:
-- avoid CORS and rate limit issues from public APIs
-- ensure consistent real-time updates
-- keep the UI stable during review
+## Real-time Updates
 
-## Assets 
-I hardcoded a few assets to keep the UI clean and avoid unnecessary API calls. In a production setup, I would fetch the asset list dynamically and only load detailed data for the selected asset to handle large datasets efficiently. And would make sure that the assets are in a drop down for better UX. 
+- The app uses polling:
 
-## How real-time updates work
+- Data refreshes every 5 seconds using setInterval
+- No full page reload
+- UI updates smoothly using React state
+- Previous data remains visible to avoid flicker
 
-The app uses polling:
+## Assets Handling
+- For this project, I used a small hardcoded list of assets.
+- Keeps the UI clean and focused
+- Avoids unnecessary API calls on initial load
+- Prevents rate limit issues
+## Scalability (if extended):
+- Fetch asset list dynamically from API
+- Add search/filter for large datasets (100+ assets)
+- Use dropdown or searchable selector for better UX
+- Fetch detailed data only for selected asset
 
-- Every 5 seconds, data is refreshed using `setInterval`
-- No page reload — React state updates the UI smoothly
-- Previous data stays visible while new data loads
-
-
-
-
+## Notes
+- This project focuses on clean UI, performance, and architecture
+- Polling is used for simplicity, but WebSockets can be used for real-time streaming in production
+- The mock API simulates real market behavior with small random variations
